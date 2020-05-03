@@ -8,6 +8,8 @@ import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class LandingComponent implements OnInit {
 
+  public isMenuCollapsed = true;
+
   constructor(config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
@@ -21,7 +23,11 @@ export class LandingComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  downloadApkUrl() {
+  getClientApkUrl() {
     return 'http://316825-blackiiifox.tmweb.ru:3000/api/files/0';
+  }
+
+  getStaffApkUrl() {
+    return '#';
   }
 }

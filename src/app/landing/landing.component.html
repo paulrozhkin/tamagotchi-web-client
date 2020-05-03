@@ -1,5 +1,22 @@
 <!-- Full Page Image Header with Vertically Centered Content -->
 
+<nav id="menu" class="site-menu" *ngIf="!isMenuCollapsed">
+  <div class="container text-center">
+    <ul class="list-unstyled">
+      <li><a class="text-decoration-none" href="#">Home</a></li>
+      <li><a class="text-decoration-none" href="#section-food">Our Food</a></li>
+      <li><a class="text-decoration-none" href="#section-about">About Us</a></li>
+      <li><a class="text-decoration-none" href="#section-chefs">Chefs</a></li>
+      <li><a class="text-decoration-none" href="#section-service">Why us?</a></li>
+      <li><a class="text-decoration-none" href="#section-contact">Contacts</a></li>
+      <hr/>
+      <li><a class="text-decoration-none" [href]="getStaffApkUrl()">Staff App</a></li>
+      <li><a class="text-decoration-none" [href]="getClientApkUrl()">Client App</a></li>
+      <li><a class="text-decoration-none" routerLink="/admin">Admin panel</a></li>
+    </ul>
+  </div>
+</nav>
+
 <header class="site-header">
   <div class="row align-items-center">
     <div class="col-5 col-md-3">
@@ -9,7 +26,9 @@
       <a href="/" class="site-logo">T</a>
     </div>
     <div class="col-5 col-md-3 text-right menu-burger-wrap">
-      <a href="#" class="site-nav-toggle"><i></i></a>
+      <a type="button" href="#" class="site-nav-toggle"
+         (click)="isMenuCollapsed = !isMenuCollapsed" [attr.aria-expanded]="!isMenuCollapsed"
+         aria-controls="menu"><i></i></a>
     </div>
   </div>
 </header> <!-- site-header -->
@@ -24,7 +43,7 @@
   <div class="modal-body">
     <div class="container">
       <p class="col-12">To book a table in our restaurants, download the Android app and do it!</p>
-      <a class="btn btn-link col-6 offset-3" [href]="downloadApkUrl()">Download</a>
+      <a class="btn btn-link col-6 offset-3" [href]="getClientApkUrl()">Download</a>
     </div>
   </div>
 </ng-template>
@@ -45,7 +64,7 @@
 </div> <!-- .cover_1 -->
 
 <!-- Page Content -->
-<div class="section" data-aos="fade-up">
+<div class="section" id="section-food" data-aos="fade-up">
   <div class="container">
 
     <div class="row section-heading justify-content-center mb-5">
@@ -106,7 +125,7 @@
   <p><img src="./assets/images/bg_hero.png" alt="Image" class="img-fluid"></p>
 </div> <!-- .section -->
 
-<div class="section pb-5" data-aos="fade-up">
+<div id="section-chefs" class="section pb-5" data-aos="fade-up">
   <div class="container">
     <div class="row mb-3">
       <div class="col-md-12 section-heading text-center">
@@ -164,7 +183,7 @@
   </div>
 </div> <!-- .section -->
 
-<div class="section bg-white services-section" data-aos="fade-up">
+<div id="section-service" class="section bg-white services-section" data-aos="fade-up">
   <div class="container">
     <div class="row section-heading justify-content-center mb-5">
       <div class="col-md-8 text-center">
@@ -244,7 +263,7 @@
   </div>
 </div> <!-- .section -->
 
-<footer class="footer">
+<footer id="section-contact" class="footer">
   <div class="container align-items-center text-left">
 
     <div class="row">
