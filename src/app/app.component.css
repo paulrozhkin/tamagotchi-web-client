@@ -144,3 +144,58 @@
   background-repeat: no-repeat;
   position: center;
 }
+
+/* Icons */
+.icon {
+  height: 170px;
+  width: 170px;
+}
+
+/* Footer */
+.footer {
+  background: #121212;
+  padding: 7em 0;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.footer h3 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.footer .fa {
+  font-size: 24px;
+  color: #fff;
+}
+
+.footer-newsletter .form-group {
+  position: relative;
+}
+
+.footer-newsletter .form-group .form-control {
+  background: #fff;
+  color: #000;
+  border: none !important;
+  border-radius: 0px;
+  padding-right: 70px;
+}
+
+.footer-newsletter .form-group .button {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10px;
+  border: none !important;
+  background: none;
+}
+
+.footer-newsletter .form-group .button:active, .ftco-footer-newsletter .form-group .button:focus {
+  outline: none;
+}
+
+.footer-newsletter .button .fa {
+  color: black;
+}
