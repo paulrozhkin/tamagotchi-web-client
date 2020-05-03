@@ -112,3 +112,35 @@
   -ms-transform: translateY(-100%);
   transform: translateY(-100%);
 }
+
+/* Sections */
+.section {
+  padding: 7em 0;
+  z-index: 2;
+  position: relative;
+}
+
+.section-heading h2 {
+  font-size: 50px;
+}
+
+@media (max-width: 991.98px) {
+  .section-heading h2 {
+    font-size: 30px;
+  }
+}
+
+.section-heading .sub-heading {
+  font-size: 20px;
+}
+
+.section-heading .small-sub-heading {
+  font-size: 14px;
+  color: #ff7a5c;
+}
+
+/* Best food */
+.best-food-images {
+  background-repeat: no-repeat;
+  position: center;
+}
