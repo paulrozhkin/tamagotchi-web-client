@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TamagotchiClient"
+    }
+  },
+  "defaultProject": "TamagotchiClient",
+  "cli": {
+    "analytics": "6013f7ea-5d54-4846-9d04-d388e52648dc"
+  }
 }

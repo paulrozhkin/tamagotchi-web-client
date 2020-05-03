@@ -1,6 +1,22 @@
-# TamagotchiClient
+<a href="#">
+    <img src="https://raw.githubusercontent.com/paulrozhkin/RestaurantClientApplication/master/app/src/main/res/drawable/logo.png" title="Tamagotchi" alt="Tamagotchi" width="200">
+</a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+
+# Tamagotchi Web Client
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/paulrozhkin/tamagotchi-web-client)
+
+This a web client application for the "Tamagotchi" restaurant chain.
+The client displays the landing page and provides access to the admin panel.
+---
+
+## Linked Repositories
+- [Server](https://github.com/paulrozhkin/NodeJsTamagotchiServer)
+- [Android client application](https://github.com/paulrozhkin/RestaurantClientApplication)
+- [Android stuff application](https://github.com/ForsaiR/RestaurantEmployerApplication)
+
+---
 
 ## Development server
 
