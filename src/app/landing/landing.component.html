@@ -1,0 +1,306 @@
+<!-- Full Page Image Header with Vertically Centered Content -->
+
+<header class="site-header">
+  <div class="row align-items-center">
+    <div class="col-5 col-md-3">
+
+    </div>
+    <div class="col-2 col-md-6 text-center site-logo-wrap">
+      <a href="/" class="site-logo">T</a>
+    </div>
+    <div class="col-5 col-md-3 text-right menu-burger-wrap">
+      <a href="#" class="site-nav-toggle"><i></i></a>
+    </div>
+  </div>
+</header> <!-- site-header -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Reserve a table</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <p class="col-12">To book a table in our restaurants, download the Android app and do it!</p>
+      <a class="btn btn-link col-6 offset-3" [href]="downloadApkUrl()">Download</a>
+    </div>
+  </div>
+</ng-template>
+
+<div class="cover_1 overlay bg-light">
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1 class="font-weight-light font-weight-bolder text-white" style="font-size:7vw;">Welcome to Tamagotchi</h1>
+          <button type="button" class="btn btn-outline-light btn-lg font-weight-bold px-5 py-3" (click)="open(content)">
+            Reserve A Table
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+</div> <!-- .cover_1 -->
+
+<!-- Page Content -->
+<div class="section" data-aos="fade-up">
+  <div class="container">
+
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Find your best food</h2>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-white">
+      <div class="row">
+        <div class="col-md-4 best-food-images" style="background: url('/assets/images/img_1.jpg');"></div>
+
+        <div class="col-md-4 col-sm-12 text-center" style="padding: 50px">
+          <h4>Vegies</h4>
+          <h3>Beef Empanadas</h3>
+          <p class="mb-5">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+            ocean.</p>
+        </div>
+
+        <div class="col-md-4 best-food-images" style="background: url('/assets/images/img_2.jpg');"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-sm-12 text-center" style="padding: 50px">
+          <h4>Vegies</h4>
+          <h3>Buttermilk Chicken Jibaritos</h3>
+          <p class="mb-5">A small river named Duden flows by their place and supplies it with the necessary
+            regelialia.</p>
+        </div>
+
+        <div class="col-md-4 best-food-images" style="background: url('/assets/images/img_3.jpg');"></div>
+
+        <div class="col-md-4 col-sm-12 text-center" style="padding: 50px">
+          <h4>Food</h4>
+          <h3>Chicken Chimichurri Croquettes</h3>
+          <p class="mb-5">Even the all-powerful Pointing has no control about the blind texts it is an almost
+            unorthographic life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- .section -->
+
+<div class="section pb-3 bg-white" id="section-about" data-aos="fade-up">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-12 col-lg-8 section-heading">
+        <h2 class="heading mb-5">The Restaurant</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind
+          texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+        <p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+      </div>
+    </div>
+  </div>
+</div> <!-- .section -->
+
+<div class="section bg-white pt-2 pb-2 text-center" data-aos="fade">
+  <p><img src="./assets/images/bg_hero.png" alt="Image" class="img-fluid"></p>
+</div> <!-- .section -->
+
+<div class="section pb-5" data-aos="fade-up">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-md-12 section-heading text-center">
+        <h2 class="heading mb-5">Meet The Chefs</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-6 pr-md-5 text-center mb-3">
+        <div>
+          <div>
+            <img class="rounded-circle pb-5 img-fluid" src="./assets/images/chef_1.jpg" alt="Image">
+            <h3>Daniel Graham</h3>
+            <p>Master Chef</p>
+          </div>
+
+          <div>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+              ocean.</p>
+            <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. It is
+              a paradisematic country.</p>
+            <p>
+              <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+              <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+              <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 pl-md-5 text-center mb-3">
+        <div>
+          <div>
+            <img class="rounded-circle pb-5 img-fluid" src="./assets/images/chef_2.jpg" alt="Image">
+            <h3>Nick Browning</h3>
+            <p>Master Chef</p>
+          </div>
+          <div>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+              ocean.</p>
+            <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. It
+              is a paradisematic country.</p>
+            <p>
+              <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+              <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+              <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4"></div> -->
+    </div>
+  </div>
+</div> <!-- .section -->
+
+<div class="section bg-white services-section" data-aos="fade-up">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Our Services</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="media feature-icon d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/soup.svg" alt="Image" style="height: 100px;">
+          <div class="media-body">
+            <h3>Quality Cuisine</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/chef.svg" alt="Chef" style="height: 100px;">
+          <div class="media-body">
+            <h3>Fresh Food</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/pancake.svg" alt="Pancake" style="height: 100px;">
+          <div class="media-body">
+            <h3>Bread &amp; Pancake</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/waiter.svg" alt="Waiter" style="height: 100px;">
+          <div class="media-body">
+            <h3>Reserve Now</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/vegetables_1.svg" alt="Vegetables" style="height: 100px;">
+          <div class="media-body">
+            <h3>Fresh Vegies Salad</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-m mb-5d-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="d-block text-center">
+          <img class="img-fluid pb-4" src="./assets/images/barbeque.svg" alt="Barbeque" style="height: 100px;">
+          <div class="media-body">
+            <h3>Charcoal Meat</h3>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> <!-- .section -->
+
+<footer class="footer">
+  <div class="container align-items-center text-left">
+
+    <div class="row">
+
+      <div class="col-md-4 mb-5">
+        <div class="footer-widget">
+          <h3 class="mb-4">About Tamagotchi</h3>
+          <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and
+            devious Semikoli, but the Little Blind Text didn’t listen. </p>
+
+          <p><a href="#" class="btn btn-outline-light">Read More</a></p>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-5">
+        <div class="footer-widget">
+          <h3 class="mb-4">Lunch Service</h3>
+          <p>Booking from 12:00pm &mdash; 1:30pm</p>
+          <h3 class="mb-4">Dinner Service</h3>
+          <p>Everyday: <br> Booking from 6:00pm &mdash; 9:00pm</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="footer-widget">
+          <h3 class="mb-4">Follow Along</h3>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><span class="fa fa-tripadvisor"></span></a></li>
+            <li class="list-inline-item"><a href="#"><span class="fa fa-twitter"></span></a></li>
+            <li class="list-inline-item"><a href="#"><span class="fa fa-facebook"></span></a></li>
+            <li class="list-inline-item"><a href="#"><span class="fa fa-instagram"></span></a></li>
+          </ul>
+        </div>
+        <div class="footer-widget">
+          <h3 class="mb-4">Newsletter</h3>
+          <form action="#" class="footer-newsletter">
+            <div class="form-group">
+              <button class="button"><span class="fa fa-envelope"></span></button>
+              <input type="email" class="form-control" placeholder="Enter Email">
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row pt-5 h-100">
+      <div class="col-md-12 text-center">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+          All rights reserved
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
