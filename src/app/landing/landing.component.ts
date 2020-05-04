@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,17 +6,20 @@ import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
 
   public isMenuCollapsed = true;
+  private bodyMainClass = 'body-main';
 
-  constructor(config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(private renderer: Renderer2, config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
+
   }
 
   ngOnInit(): void {
+    this.renderer.addClass(document.body, this.bodyMainClass);
   }
 
   open(content) {
@@ -29,5 +32,9 @@ export class LandingComponent implements OnInit {
 
   getStaffApkUrl() {
     return '#';
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.removeClass(document.body, this.bodyMainClass);
   }
 }
