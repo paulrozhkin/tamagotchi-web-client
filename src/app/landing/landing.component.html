@@ -3,16 +3,16 @@
 <nav id="menu" class="site-menu" *ngIf="!isMenuCollapsed">
   <div class="container text-center">
     <ul class="list-unstyled">
-      <li><a class="text-decoration-none" href="#">Home</a></li>
-      <li><a class="text-decoration-none" href="#section-food">Our Food</a></li>
-      <li><a class="text-decoration-none" href="#section-about">About Us</a></li>
-      <li><a class="text-decoration-none" href="#section-chefs">Chefs</a></li>
-      <li><a class="text-decoration-none" href="#section-service">Why us?</a></li>
-      <li><a class="text-decoration-none" href="#section-contact">Contacts</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#">Home</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#section-food">Our Food</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#section-about">About Us</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#section-chefs">Chefs</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#section-service">Why us?</a></li>
+      <li><a class="text-decoration-none" href="{{pageRoute}}#section-contact">Contacts</a></li>
       <hr/>
       <li><a class="text-decoration-none" [href]="getStaffApkUrl()">Staff App</a></li>
       <li><a class="text-decoration-none" [href]="getClientApkUrl()">Client App</a></li>
-      <li><a class="text-decoration-none" routerLink="/admin">Admin panel</a></li>
+      <li><a class="text-decoration-none" href="/admin">Admin panel</a></li>
     </ul>
   </div>
 </nav>
@@ -149,9 +149,9 @@
             <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. It is
               a paradisematic country.</p>
             <p>
-              <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-              <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-              <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+              <a class="p-2"><span class="fa fa-facebook"></span></a>
+              <a class="p-2"><span class="fa fa-twitter"></span></a>
+              <a class="p-2"><span class="fa fa-instagram"></span></a>
             </p>
           </div>
         </div>
@@ -171,9 +171,9 @@
             <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. It
               is a paradisematic country.</p>
             <p>
-              <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-              <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-              <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+              <a class="p-2"><span class="fa fa-facebook"></span></a>
+              <a class="p-2"><span class="fa fa-twitter"></span></a>
+              <a class="p-2"><span class="fa fa-instagram"></span></a>
             </p>
           </div>
         </div>
@@ -274,7 +274,7 @@
           <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and
             devious Semikoli, but the Little Blind Text didn’t listen. </p>
 
-          <p><a href="#" class="btn btn-outline-light">Read More</a></p>
+          <p><a class="btn btn-outline-light">Read More</a></p>
         </div>
       </div>
 
@@ -291,10 +291,10 @@
         <div class="footer-widget">
           <h3 class="mb-4">Follow Along</h3>
           <ul class="list-inline">
-            <li class="list-inline-item"><a href="#"><span class="fa fa-tripadvisor"></span></a></li>
-            <li class="list-inline-item"><a href="#"><span class="fa fa-twitter"></span></a></li>
-            <li class="list-inline-item"><a href="#"><span class="fa fa-facebook"></span></a></li>
-            <li class="list-inline-item"><a href="#"><span class="fa fa-instagram"></span></a></li>
+            <li class="list-inline-item"><a><span class="fa fa-tripadvisor"></span></a></li>
+            <li class="list-inline-item"><a><span class="fa fa-twitter"></span></a></li>
+            <li class="list-inline-item"><a><span class="fa fa-facebook"></span></a></li>
+            <li class="list-inline-item"><a><span class="fa fa-instagram"></span></a></li>
           </ul>
         </div>
         <div class="footer-widget">

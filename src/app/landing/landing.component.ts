@@ -8,15 +8,16 @@ import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class LandingComponent implements OnInit, OnDestroy {
 
-  public isMenuCollapsed = true;
-  private bodyMainClass = 'body-main';
-
   constructor(private renderer: Renderer2, config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
 
   }
+  public pageRoute = '/welcome';
+
+  public isMenuCollapsed = true;
+  private bodyMainClass = 'body-main';
 
   ngOnInit(): void {
     this.renderer.addClass(document.body, this.bodyMainClass);
