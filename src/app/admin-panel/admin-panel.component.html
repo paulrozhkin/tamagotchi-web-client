@@ -38,7 +38,8 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/imags_admin_panel/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="assets/imags_admin_panel/user1-128x128.jpg" alt="User Avatar"
+                   class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -54,7 +55,8 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/imags_admin_panel/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/imags_admin_panel/user8-128x128.jpg" alt="User Avatar"
+                   class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -70,7 +72,8 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/imags_admin_panel/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/imags_admin_panel/user3-128x128.jpg" alt="User Avatar"
+                   class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -125,7 +128,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{pageRoute}}" class="brand-link">
-      <img src="assets/imags_admin_panel/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="assets/imags_admin_panel/AdminLTELogo.png" alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -148,7 +152,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a routerLink="{{pageRoute}}" class="nav-link active">
+            <a routerLink="{{pageRoute}}" class="nav-link" [ngClass]="{'active': router.url.includes('statistic')}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -158,36 +162,40 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+            <a href="#" class="nav-link" [ngClass]="{'active': router.url.includes('management')}">
+              <i class="nav-icon fas fa-cog"></i>
               <p>
-                CRUD Control
+                Management
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">4</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a routerLink="{{pageRoute}}/users" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a routerLink="{{pageRoute}}/management/users" class="nav-link"
+                   [ngClass]="{'active': router.url.includes('users')}">
+                  <i class="fas fa-users nav-icon"></i>
                   <p>Users</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a routerLink="{{pageRoute}}/management/restaurants" class="nav-link"
+                   [ngClass]="{'active': router.url.includes('restaurants')}">
+                  <i class="fas fa-store nav-icon"></i>
                   <p>Restaurants</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Disches</p>
+                <a routerLink="{{pageRoute}}/management/dishes" class="nav-link"
+                   [ngClass]="{'active': router.url.includes('dishes')}">
+                  <i class="fas fa-utensils nav-icon"></i>
+                  <p>Dishes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a routerLink="{{pageRoute}}/management/menu" class="nav-link"
+                   [ngClass]="{'active': router.url.includes('menu')}">
+                  <i class="fas fa-book-open nav-icon"></i>
                   <p>Menu</p>
                 </a>
               </li>
@@ -196,13 +204,16 @@
 
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
+      <!-- /.sidebar-management-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
-  <router-outlet></router-outlet>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

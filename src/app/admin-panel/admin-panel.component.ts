@@ -12,7 +12,7 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
 
   public pageRoute = '/admin';
 
-  constructor(private renderer: Renderer2, private router: Router) {
+  constructor(private renderer: Renderer2, public router: Router) {
   }
 
   ngOnInit(): void {
