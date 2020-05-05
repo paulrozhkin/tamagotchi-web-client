@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
+import {AccountService} from '../core/services';
 
 @Component({
   selector: 'app-admin-panel',

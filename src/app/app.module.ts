@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {RouterModule} from '@angular/router';
 import {LandingComponent} from './landing/landing.component';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -17,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core';
 import {SharedModule} from './shared';
 import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     ManagementRestaurantsComponent,
     ManagementDishesComponent,
     ManagementMenuComponent,
-    ManagementHeaderComponent
+    ManagementHeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -8,12 +8,17 @@ import {ManagementUsersComponent} from './admin-panel/management-users/managemen
 import {ManagementRestaurantsComponent} from './admin-panel/management-restaurants/management-restaurants.component';
 import {ManagementDishesComponent} from './admin-panel/management-dishes/management-dishes.component';
 import {ManagementMenuComponent} from './admin-panel/management-menu/management-menu.component';
+import {AuthGuard} from './core/services';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'welcome', component: LandingComponent},
   {
     path: 'admin', component: AdminPanelComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {path: '', redirectTo: 'statistic', pathMatch: 'full'},
       {path: 'statistic', component: DashboardComponent},
