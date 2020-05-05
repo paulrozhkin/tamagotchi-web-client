@@ -12,11 +12,14 @@ import {ManagementRestaurantsComponent} from './admin-panel/management-restauran
 import {ManagementDishesComponent} from './admin-panel/management-dishes/management-dishes.component';
 import {ManagementMenuComponent} from './admin-panel/management-menu/management-menu.component';
 import {ManagementHeaderComponent} from './admin-panel/management-header/management-header.component';
-import {HttpClientModule} from '@angular/common/http';
-import {CoreModule} from './core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AccountService, CoreModule, HttpTokenInterceptor, RestaurantsService, UsersService} from './core';
 import {SharedModule} from './shared';
-import {FormsModule} from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LoginComponent} from './login/login.component';
+import {RestaurantCreateComponent} from './admin-panel/management-restaurants/restaurant-create/restaurant-create.component';
+import {DecimalPipe} from '@angular/common';
+import { RestaurantUpdateComponent } from './admin-panel/management-restaurants/restaurant-update/restaurant-update.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { LoginComponent } from './login/login.component';
     ManagementDishesComponent,
     ManagementMenuComponent,
     ManagementHeaderComponent,
-    LoginComponent
+    LoginComponent,
+    RestaurantCreateComponent,
+    RestaurantUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,12 @@ import { LoginComponent } from './login/login.component';
     CoreModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DecimalPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

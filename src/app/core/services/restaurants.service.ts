@@ -1,8 +1,8 @@
 import {Injectable, PipeTransform} from '@angular/core';
-import {Restaurant} from '../models';
+import {Restaurant, RestaurantCreateInfo, RestaurantUpdateInfo} from '../models';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {DecimalPipe} from '@angular/common';
-import {debounceTime, delay, filter, switchMap, tap} from 'rxjs/operators';
+import {debounceTime, delay, filter, map, switchMap, tap} from 'rxjs/operators';
 import {ApiService} from './api.service';
 
 interface SearchResult {
@@ -17,10 +17,12 @@ interface State {
 }
 
 
-function matches(country: Restaurant, term: string, pipe: PipeTransform) {
-  return country.name.toLowerCase().includes(term.toLowerCase())
-    || pipe.transform(country.area).includes(term)
-    || pipe.transform(country.population).includes(term);
+function matches(restaurant: Restaurant, term: string, pipe: PipeTransform) {
+  const isMatch = restaurant.address.toLowerCase().includes(term.toLowerCase())
+    || pipe.transform(restaurant.positionLatitude).includes(term)
+    || pipe.transform(restaurant.positionLongitude).includes(term);
+
+  return isMatch;
 }
 
 @Injectable({
@@ -46,15 +48,17 @@ export class RestaurantsService {
   constructor(private pipe: DecimalPipe, private apiService: ApiService) {
     this._search$.pipe(
       tap(() => this._loading$.next(true)),
-      debounceTime(200),
       switchMap(() => this._search()),
-      delay(200),
       tap(() => this._loading$.next(false))
     ).subscribe(result => {
       this._restaurants$.next(result.restaurants);
       this._total$.next(result.total);
     });
 
+    this._search$.next();
+  }
+
+  public refresh() {
     this._search$.next();
   }
 
@@ -86,7 +90,6 @@ export class RestaurantsService {
     this._set({pageSize});
   }
 
-
   get searchTerm() {
     return this.state.searchTerm;
   }
@@ -103,15 +106,27 @@ export class RestaurantsService {
   private _search(): Observable<SearchResult> {
     const {pageSize, page, searchTerm} = this.state;
 
-    return this.apiService.get('/management-restaurants').pipe(
-      filter(restaurant => matches(restaurant, searchTerm, this.pipe))
+    // TODO: need normal pagination on the server.
+    return this.apiService.get('/restaurants').pipe(
+      map(
+        restaurantsMap => ({
+          restaurants: restaurantsMap.filter(
+            restaurant => matches(restaurant, searchTerm, this.pipe)
+          ).slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize), total: restaurantsMap.length
+        } as SearchResult)
+      )
     );
-    // 1. filter
-    // management-restaurants = management-restaurants.filter(country => matches(country, searchTerm, this.pipe));
-    // const total = management-restaurants.length;
-    //
-    // // 2. paginate
-    // management-restaurants = management-restaurants.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    // return of({management-restaurants, total});
+  }
+
+  createRestaurant(info: RestaurantCreateInfo) {
+    return this.apiService.post('/restaurants', info);
+  }
+
+  updateRestaurant(id: number, info: RestaurantUpdateInfo) {
+    return this.apiService.put(`/restaurants/${id}`, info);
+  }
+
+  getById(id: number) {
+    return this.apiService.get(`/restaurants/${id}`);
   }
 }

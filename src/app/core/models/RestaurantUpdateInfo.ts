@@ -1,8 +1,4 @@
-export interface Restaurant {
-  id: number;
-  address: string;
-  positionLatitude: number;
-  positionLongitude: number;
+export interface RestaurantUpdateInfo {
   isParkingPresent: boolean;
   isCardPaymentPresent: boolean;
   isWifiPresent: boolean;

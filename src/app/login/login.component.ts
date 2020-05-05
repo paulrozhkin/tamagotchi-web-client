@@ -3,7 +3,6 @@ import {AccountService} from '../core/services';
 import {Credentials} from '../core/models';
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.accountService.logIn(credentials).subscribe(
       result => {
         this.isLoginProgress = false;
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/welcome']);
       }, error => {
         this.isLoginProgress = false;
         this.isErrorLogin = true;

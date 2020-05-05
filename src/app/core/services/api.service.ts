@@ -9,10 +9,6 @@ import {catchError} from 'rxjs/operators';
 })
 export class ApiService {
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-  });
-
   constructor(
     private http: HttpClient,
   ) {
@@ -30,16 +26,14 @@ export class ApiService {
   put(path: string, body: object = {}): Observable<any> {
     return this.http.put(
       `${environment.api_url}${path}`,
-      JSON.stringify(body),
-      {headers: this.headers}
+      JSON.stringify(body)
     ).pipe(catchError(ApiService.formatErrors));
   }
 
   post(path: string, body: object = {}): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`,
-      JSON.stringify(body),
-      {headers: this.headers}
+      JSON.stringify(body)
     ).pipe(catchError(ApiService.formatErrors));
   }
 

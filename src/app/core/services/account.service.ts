@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
 import {JwtService} from './jwt.service';
 import {User} from '../models';
 import {distinctUntilChanged, map} from 'rxjs/operators';
+import {Md5} from 'ts-md5';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,9 @@ export class AccountService {
           data => {
             this.setAuth({...data, token});
           },
-          err => this.purgeAuth()
+          err => {
+            this.purgeAuth();
+          }
         );
     } else {
       // Remove any potential remnants of previous auth states
@@ -70,10 +73,12 @@ export class AccountService {
    * @return user data.
    */
   logIn(credentials): Observable<User> {
+    credentials.password = Md5.hashStr(credentials.password);
+
     return this.apiService.post(`/authenticate`, credentials)
       .pipe(map(
         data => {
-          this.setAuth(data.user);
+          this.setAuth(data);
           return data;
         }
       ));

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://restaurant-tamagotchi.ru:3000/api'
-  // api_url: 'http://localhost:3000/api'
+  // api_url: 'http://restaurant-tamagotchi.ru:3000/api'
+  api_url: 'http://127.0.0.1:3000/api'
 };
 
 /*

@@ -14,16 +14,26 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   constructor(private jwtService: JwtService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let headersConfig = {
-      ContentType: 'application/json',
-      Accept: 'application/json'
-    };
+    const isFileKey = request.headers.get('IS-FILE');
+
+    // TODO: очень сильный костыль на то, чтобы загружать файлы. Надо что то с этим делать.
+    let headersConfig = {};
+    if (!isFileKey) {
+      headersConfig = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      };
+    } else {
+      headersConfig = {
+        Accept: '*/*'
+      };
+    }
 
     const token = this.jwtService.getToken();
 
     if (token) {
       const authData = {
-        Authorization: `Token ${token}`
+        Authorization: `Bearer ${token}`
       };
       headersConfig =  { ...headersConfig, ...authData };
     }

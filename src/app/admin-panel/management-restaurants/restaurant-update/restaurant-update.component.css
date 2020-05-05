@@ -1,0 +1,8 @@
+.scale {
+  transition: transform .2s; /* Animation */
+}
+
+.scale:hover {
+  transform: scale(10); /* (150% зум - Примечание: если масштаб слишком велик, он будет выходить за пределы видового экрана) */
+
+}
