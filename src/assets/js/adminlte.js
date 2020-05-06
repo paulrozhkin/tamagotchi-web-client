@@ -487,7 +487,7 @@ function adminLteStart() {
        */
 
 
-      $(window).on('load', function () {
+      $( document ).ready(function()  {
         Layout._jQueryInterface.call($('body'));
       });
       $(Selector.SIDEBAR + ' a').on('focusin', function () {
@@ -716,7 +716,7 @@ function adminLteStart() {
 
         PushMenu._jQueryInterface.call($(button), 'toggle');
       });
-      $(window).on('load', function () {
+      $( document ).ready(function()  {
         PushMenu._jQueryInterface.call($(Selector.TOGGLE_BUTTON));
       });
       /**
@@ -895,7 +895,7 @@ function adminLteStart() {
        */
 
 
-      $(window).on(Event.LOAD_DATA_API, function () {
+      $( document ).ready(function() {
         $(Selector.DATA_WIDGET).each(function () {
           Treeview._jQueryInterface.call($(this), 'init');
         });
@@ -1100,7 +1100,7 @@ function adminLteStart() {
        */
 
 
-      $(window).on('load', function () {
+      $( document ).ready(function()  {
         TodoList._jQueryInterface.call($(Selector.DATA_TOGGLE));
       });
       /**
