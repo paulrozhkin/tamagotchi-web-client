@@ -12,8 +12,8 @@ The client displays the landing page and provides access to the admin panel.
 ---
 
 ## Linked Repositories
-- [Server](https://github.com/paulrozhkin/NodeJsTamagotchiServer)
-- [Android client application](https://github.com/paulrozhkin/RestaurantClientApplication)
+- [Server](https://github.com/paulrozhkin/tamagotchi-server)
+- [Android client application](https://github.com/paulrozhkin/tamagotch-android-client)
 - [Android stuff application](https://github.com/ForsaiR/RestaurantEmployerApplication)
 
 ---
