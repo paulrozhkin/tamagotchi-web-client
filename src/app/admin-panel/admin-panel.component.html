@@ -30,7 +30,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="{{pageRoute}}">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
@@ -127,7 +127,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{pageRoute}}" class="brand-link">
+    <a routerLink="{{pageRoute}}" class="brand-link">
       <img src="assets/imags_admin_panel/AdminLTELogo.png" alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -142,7 +142,7 @@
           <img src="assets/imags_admin_panel/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -162,7 +162,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a routerLink="#" class="nav-link" [ngClass]="{'active': router.url.includes('management')}">
+            <a routerLink="{{pageRoute}}" class="nav-link" [ngClass]="{'active': router.url.includes('management')}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Management

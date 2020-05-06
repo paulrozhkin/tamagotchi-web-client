@@ -31,17 +31,6 @@ export class ManagementRestaurantsComponent implements OnInit {
   }
 
   onEdit(id: number) {
-    // const modalRef = this.modalService.open(RestaurantUpdateComponent);
-    // this.service.restaurants$.pipe(
-    //   map(restaurants => restaurants.filter(restaurant => restaurant.id === id)),
-    //   tap(restaurant => {
-    //       const modalEdit = this.modalService.open(RestaurantUpdateComponent);
-    //       modalEdit.componentInstance.restaurant = restaurant;
-    //       modalEdit.result.then(() => this.service.refresh());
-    //     }
-    //   )
-    // ).subscribe();
-
     this.service.getById(id).subscribe(restaurantInfo => {
       const modalEdit = this.modalService.open(RestaurantUpdateComponent);
       modalEdit.componentInstance.restaurant = restaurantInfo;

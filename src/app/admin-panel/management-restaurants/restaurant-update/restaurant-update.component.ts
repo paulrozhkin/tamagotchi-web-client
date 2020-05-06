@@ -1,10 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FileInfo, Restaurant, RestaurantUpdateInfo} from '../../../core/models';
+import {Component, Input, OnInit} from '@angular/core';
+import {Restaurant, RestaurantUpdateInfo} from '../../../core/models';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, Validators} from '@angular/forms';
-import {ApiService, RestaurantsService} from '../../../core/services';
-import {environment} from '../../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {FormBuilder} from '@angular/forms';
+import {FilesService, RestaurantsService} from '../../../core/services';
 
 @Component({
   selector: 'app-restaurant-update',
@@ -27,7 +25,7 @@ export class RestaurantUpdateComponent implements OnInit {
   );
 
   constructor(public activeModal: NgbActiveModal, private fb: FormBuilder,
-              private restaurantsService: RestaurantsService, private httpClient: HttpClient) {
+              private restaurantsService: RestaurantsService, public filesService: FilesService) {
   }
 
   ngOnInit(): void {
@@ -71,23 +69,12 @@ export class RestaurantUpdateComponent implements OnInit {
     });
   }
 
-
-  getPathToImage(imageId: number) {
-    return `${environment.api_url}/files/${imageId}`;
-  }
-
   onFileChanged(files: FileList) {
     const selectedFile = files[0];
 
-    const uploadData = new FormData();
-    uploadData.append('file', selectedFile, selectedFile.name);
-
-    this.httpClient.post(`${environment.api_url}/files`, uploadData, {headers: {'IS-FILE': 'isFile'}})
-      .subscribe(newFile => {
-        const fileInfo = newFile as FileInfo;
-        if (fileInfo) {
-          this.restaurant.photos.push(fileInfo.id);
-        }
+    this.filesService.fileUpload(selectedFile).subscribe(newFileId => this.restaurant.photos.push(newFileId),
+      error => {
+        // TODO: ошибка, что файл не был загружен.
       });
   }
 

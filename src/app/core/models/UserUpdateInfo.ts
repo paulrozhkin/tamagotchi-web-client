@@ -1,8 +1,9 @@
-export interface User {
-  id: number;
+export interface UserUpdateInfo {
   login: string;
   fullName: string;
   role: string;
   avatar: number;
   isBlocked: boolean;
+  password: string;
 }
+

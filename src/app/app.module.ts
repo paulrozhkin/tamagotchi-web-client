@@ -19,7 +19,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './login/login.component';
 import {RestaurantCreateComponent} from './admin-panel/management-restaurants/restaurant-create/restaurant-create.component';
 import {DecimalPipe} from '@angular/common';
-import { RestaurantUpdateComponent } from './admin-panel/management-restaurants/restaurant-update/restaurant-update.component';
+import {RestaurantUpdateComponent} from './admin-panel/management-restaurants/restaurant-update/restaurant-update.component';
+import {UserCreateComponent} from './admin-panel/management-users/user-create/user-create.component';
+import {UserUpdateComponent} from './admin-panel/management-users/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RestaurantUpdateComponent } from './admin-panel/management-restaurants/
     ManagementHeaderComponent,
     LoginComponent,
     RestaurantCreateComponent,
-    RestaurantUpdateComponent
+    RestaurantUpdateComponent,
+    UserCreateComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

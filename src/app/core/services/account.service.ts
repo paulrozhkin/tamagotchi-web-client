@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ApiService} from './api.service';
 import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
 import {JwtService} from './jwt.service';
-import {User} from '../models';
+import {Credentials, User} from '../models';
 import {distinctUntilChanged, map} from 'rxjs/operators';
 import {Md5} from 'ts-md5';
 
@@ -72,8 +72,8 @@ export class AccountService {
    * @param credentials login and password.
    * @return user data.
    */
-  logIn(credentials): Observable<User> {
-    credentials.password = Md5.hashStr(credentials.password);
+  logIn(credentials: Credentials): Observable<User> {
+    credentials.password = (Md5.hashStr(credentials.password) as string);
 
     return this.apiService.post(`/authenticate`, credentials)
       .pipe(map(

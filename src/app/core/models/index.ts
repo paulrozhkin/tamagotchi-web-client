@@ -4,3 +4,4 @@ export * from './credentials';
 export * from './restaurant-create-info';
 export * from './FileInfo';
 export * from './RestaurantUpdateInfo';
+export * from './UserUpdateInfo'

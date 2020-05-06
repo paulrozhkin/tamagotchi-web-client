@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
+import {delay} from 'rxjs/operators';
 declare function adminLteStart(): any; // just change here from arun answer.
 
 @Component({
@@ -18,6 +19,7 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.adminPanelClasses.forEach(adminBodyClass => this.renderer.addClass(document.body, adminBodyClass));
+    // TODO: It's not a fix.
     adminLteStart();
   }
 

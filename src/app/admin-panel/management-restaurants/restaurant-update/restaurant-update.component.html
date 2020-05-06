@@ -41,7 +41,7 @@
           <button type="button" class="close" aria-label="Close" (click)="deleteImage(photoId)">
             <span aria-hidden="true">&times;</span>
           </button>
-          <img src="{{getPathToImage(photoId)}}" class="img-fluid mb-2 scale" alt="Not Found"/>
+          <img src="{{filesService.getFileUrl(photoId)}}" class="img-fluid mb-2 scale" alt="Not Found"/>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 declare function reloadDashboard(): any; // just change here from arun answer.
 
 @Component({
@@ -8,7 +9,8 @@ declare function reloadDashboard(): any; // just change here from arun answer.
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     reloadDashboard();

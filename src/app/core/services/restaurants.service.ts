@@ -2,7 +2,7 @@ import {Injectable, PipeTransform} from '@angular/core';
 import {Restaurant, RestaurantCreateInfo, RestaurantUpdateInfo} from '../models';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {DecimalPipe} from '@angular/common';
-import {debounceTime, delay, filter, map, switchMap, tap} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 import {ApiService} from './api.service';
 
 interface SearchResult {
@@ -18,11 +18,9 @@ interface State {
 
 
 function matches(restaurant: Restaurant, term: string, pipe: PipeTransform) {
-  const isMatch = restaurant.address.toLowerCase().includes(term.toLowerCase())
+  return restaurant.address.toLowerCase().includes(term.toLowerCase())
     || pipe.transform(restaurant.positionLatitude).includes(term)
     || pipe.transform(restaurant.positionLongitude).includes(term);
-
-  return isMatch;
 }
 
 @Injectable({
