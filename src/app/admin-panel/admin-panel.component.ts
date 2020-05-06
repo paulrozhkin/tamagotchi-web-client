@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
-import {AccountService} from '../core/services';
+declare function adminLteStart(): any; // just change here from arun answer.
 
 @Component({
   selector: 'app-admin-panel',
@@ -18,6 +18,7 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.adminPanelClasses.forEach(adminBodyClass => this.renderer.addClass(document.body, adminBodyClass));
+    adminLteStart();
   }
 
   ngOnDestroy(): void {
