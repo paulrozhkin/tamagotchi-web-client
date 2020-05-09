@@ -17,7 +17,7 @@ export class ManagementRestaurantsComponent implements OnInit {
   total$: Observable<number>;
 
   constructor(public service: RestaurantsService, private modalService: NgbModal) {
-    this.restaurants$ = service.restaurants$;
+    this.restaurants$ = service.entities$;
     this.total$ = service.total$;
   }
 

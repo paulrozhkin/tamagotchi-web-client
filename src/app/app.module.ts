@@ -22,6 +22,8 @@ import {DecimalPipe} from '@angular/common';
 import {RestaurantUpdateComponent} from './admin-panel/management-restaurants/restaurant-update/restaurant-update.component';
 import {UserCreateComponent} from './admin-panel/management-users/user-create/user-create.component';
 import {UserUpdateComponent} from './admin-panel/management-users/user-update/user-update.component';
+import {DishesCreateComponent} from './admin-panel/management-dishes/dishes-create/dishes-create.component';
+import {DishesUpdateComponent} from './admin-panel/management-dishes/dishes-update/dishes-update.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {UserUpdateComponent} from './admin-panel/management-users/user-update/us
     RestaurantCreateComponent,
     RestaurantUpdateComponent,
     UserCreateComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    DishesCreateComponent,
+    DishesUpdateComponent
   ],
   imports: [
     BrowserModule,

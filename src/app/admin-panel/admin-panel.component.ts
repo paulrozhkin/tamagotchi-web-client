@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
-import {delay} from 'rxjs/operators';
 declare function adminLteStart(): any; // just change here from arun answer.
 
 @Component({

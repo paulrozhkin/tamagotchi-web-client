@@ -17,7 +17,7 @@ export class ManagementUsersComponent implements OnInit {
   total$: Observable<number>;
 
   constructor(public service: UsersService, private modalService: NgbModal, public filesService: FilesService) {
-    this.users$ = this.service.users$;
+    this.users$ = this.service.entities$;
     this.total$ = service.total$;
   }
 

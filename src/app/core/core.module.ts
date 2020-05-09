@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AccountService, FilesService, JwtService, RestaurantsService, UsersService} from './services';
+import {AccountService, FilesService, JwtService, RestaurantsService, UsersService, DishesService} from './services';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HttpTokenInterceptor} from './interceptors';
 
@@ -15,7 +15,8 @@ import {HttpTokenInterceptor} from './interceptors';
     UsersService,
     AccountService,
     RestaurantsService,
-    FilesService
+    FilesService,
+    DishesService
   ]
 })
 export class CoreModule {
