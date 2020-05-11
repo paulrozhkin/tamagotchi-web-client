@@ -73,7 +73,7 @@ export abstract class BaseEntityService<Entity> {
     searchTerm: ''
   };
 
-  protected abstract matches(restaurant: Entity, term: string): boolean;
+  protected abstract matches(entity: Entity, term: string): boolean;
 
   protected abstract search(): Observable<SearchResultPagination<Entity>>;
 

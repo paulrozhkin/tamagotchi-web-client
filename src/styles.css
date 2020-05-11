@@ -13,3 +13,6 @@ html {
   scroll-behavior: smooth;
 }
 
+.actionCol {
+  width: 12rem;
+}

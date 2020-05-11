@@ -1,28 +1,18 @@
 <div class="modal-header">
-  <h4 class="modal-title">Create restaurant</h4>
+  <h4 class="modal-title">Create dish</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <form [formGroup]="restaurantCreateForm" name="createRestaurantForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="dishCreateForm" name="createDishForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" id="address" placeholder="Restaurant address" formControlName="address">
-    </div>
-    <div class="form-group">
-      <label for="latitude">Latitude</label>
-      <input type="number" class="form-control" [ngClass]="{'is-invalid': latitude.dirty && latitude.invalid}"
-             id="latitude" placeholder="Position latitude" formControlName="latitude">
-    </div>
-    <div class="form-group">
-      <label for="longitude">Longitude</label>
-      <input type="number" class="form-control" [ngClass]="{'is-invalid': longitude.dirty && longitude.invalid}"
-             id="longitude" placeholder="Position longitude" formControlName="longitude">
+      <label for="name">Dish name</label>
+      <input type="text" class="form-control" id="name" placeholder="Dish name" formControlName="name">
     </div>
 
     <hr/>
 
-    <button type="submit" class="btn btn-primary" [disabled]="restaurantCreateForm.invalid">Create</button>
+    <button type="submit" class="btn btn-primary" [disabled]="dishCreateForm.invalid">Create</button>
   </form>
 </div>

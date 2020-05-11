@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
-declare function adminLteStart(): any; // just change here from arun answer.
+declare function adminLteStart(): any;
 
 @Component({
   selector: 'app-admin-panel',

@@ -24,6 +24,8 @@ import {UserCreateComponent} from './admin-panel/management-users/user-create/us
 import {UserUpdateComponent} from './admin-panel/management-users/user-update/user-update.component';
 import {DishesCreateComponent} from './admin-panel/management-dishes/dishes-create/dishes-create.component';
 import {DishesUpdateComponent} from './admin-panel/management-dishes/dishes-update/dishes-update.component';
+import {MenuItemCreateComponent} from './admin-panel/management-menu/menu-item-create/menu-item-create.component';
+import {MenuItemUpdateComponent} from './admin-panel/management-menu/menu-item-update/menu-item-update.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {DishesUpdateComponent} from './admin-panel/management-dishes/dishes-upda
     UserCreateComponent,
     UserUpdateComponent,
     DishesCreateComponent,
-    DishesUpdateComponent
+    DishesUpdateComponent,
+    MenuItemCreateComponent,
+    MenuItemUpdateComponent
   ],
   imports: [
     BrowserModule,

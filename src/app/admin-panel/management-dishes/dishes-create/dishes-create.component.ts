@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {RestaurantsService} from '../../../core/services';
-import {RestaurantCreateInfo} from '../../../core/models';
+import {DishesService, RestaurantsService} from '../../../core/services';
+import {Dish, DishUpdatedInfo, RestaurantCreateInfo} from '../../../core/models';
 import {DecimalPipe} from '@angular/common';
 
 @Component({
@@ -12,26 +12,16 @@ import {DecimalPipe} from '@angular/common';
 })
 export class DishesCreateComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal, private fb: FormBuilder, private restaurantsService: RestaurantsService) {
+  constructor(public activeModal: NgbActiveModal, private fb: FormBuilder, private dishesService: DishesService) {
   }
 
-  get address() {
-    return this.restaurantCreateForm.get('address');
+  get name() {
+    return this.dishCreateForm.get('name');
   }
 
-  get latitude() {
-    return this.restaurantCreateForm.get('latitude');
-  }
-
-  get longitude() {
-    return this.restaurantCreateForm.get('longitude');
-  }
-
-  restaurantCreateForm = this.fb.group(
+  dishCreateForm = this.fb.group(
     {
-      address: ['', Validators.required],
-      latitude: ['', [Validators.required, Validators.min(0), Validators.max(180)]],
-      longitude: ['', [Validators.required, Validators.min(0), Validators.max(180)]]
+      name: ['', Validators.required]
     }
   );
 
@@ -39,13 +29,13 @@ export class DishesCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    const createInfo: RestaurantCreateInfo = {
-      address: this.address.value,
-      positionLatitude: this.latitude.value,
-      positionLongitude: this.longitude.value
+    const createInfo: DishUpdatedInfo = {
+      description: null,
+      photos: null,
+      name: this.name.value
     };
 
-    this.restaurantsService.createRestaurant(createInfo).subscribe(restaurant => {
+    this.dishesService.createDish(createInfo).subscribe(restaurant => {
       this.activeModal.close('Created');
     }, error => {
       // TODO: надо что то показывать пользователю.

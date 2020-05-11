@@ -8,3 +8,6 @@ export * from './user-update-info.model';
 export * from './dish.model';
 export * from './state-pagination.model';
 export * from './search-result-pagination.model';
+export * from './dish-updated-info.model';
+export * from './menu-item-update-info.model';
+export * from './menu-item.model';

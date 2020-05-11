@@ -1,29 +1,20 @@
 <div class="modal-header">
-  <h4 class="modal-title">Update restaurant № {{restaurant.id}}</h4>
+  <h4 class="modal-title">Update dish № {{dish.id}}</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p>{{restaurant.address}}</p>
+  <form [formGroup]="dishUpdateForm" name="updateDishForm" (ngSubmit)="onSubmit()">
 
-  <form [formGroup]="restaurantUpdateForm" name="updateRestaurantForm" (ngSubmit)="onSubmit()">
-
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="isParkingPresent" formControlName="isParkingPresent">
-      <label class="form-check-label" for="isParkingPresent">Parking</label>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Dish name" formControlName="name">
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="isCardPaymentPresent" formControlName="isCardPaymentPresent">
-      <label class="form-check-label" for="isCardPaymentPresent">Card pay</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="isWifiPresent" formControlName="isWifiPresent">
-      <label class="form-check-label" for="isWifiPresent">WiFi</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="isDeleted" formControlName="isDeleted">
-      <label class="form-check-label" for="isDeleted">Deleted</label>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" class="form-control" id="description" placeholder="Dish description"
+                formControlName="description"></textarea>
     </div>
 
     <div class="card-body">
@@ -37,7 +28,7 @@
 
       <hr/>
       <div class="row">
-        <div *ngFor="let photoId of restaurant.photos" class="col-sm-2">
+        <div *ngFor="let photoId of dish.photos" class="col-sm-2">
           <button type="button" class="close" aria-label="Close" (click)="deleteImage(photoId)">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -47,6 +38,6 @@
     </div>
 
     <hr/>
-    <button type="submit" class="btn btn-primary" [disabled]="restaurantUpdateForm.invalid">Update</button>
+    <button type="submit" class="btn btn-primary" [disabled]="dishUpdateForm.invalid">Update</button>
   </form>
 </div>
