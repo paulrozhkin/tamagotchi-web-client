@@ -26,6 +26,9 @@ import {DishesCreateComponent} from './admin-panel/management-dishes/dishes-crea
 import {DishesUpdateComponent} from './admin-panel/management-dishes/dishes-update/dishes-update.component';
 import {MenuItemCreateComponent} from './admin-panel/management-menu/menu-item-create/menu-item-create.component';
 import {MenuItemUpdateComponent} from './admin-panel/management-menu/menu-item-update/menu-item-update.component';
+import {TablesCreateComponent} from './admin-panel/management-tables/tables-create/tables-create.component';
+import {TablesUpdateComponent} from './admin-panel/management-tables/tables-update/tables-update.component';
+import {ManagementTablesComponent} from './admin-panel/management-tables/management-tables.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import {MenuItemUpdateComponent} from './admin-panel/management-menu/menu-item-u
     DishesCreateComponent,
     DishesUpdateComponent,
     MenuItemCreateComponent,
-    MenuItemUpdateComponent
+    MenuItemUpdateComponent,
+    TablesCreateComponent,
+    TablesUpdateComponent,
+    ManagementTablesComponent
   ],
   imports: [
     BrowserModule,

@@ -198,6 +198,13 @@
                   <p>Menu</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a routerLink="{{pageRoute}}/management/tables" class="nav-link"
+                   [ngClass]="{'active': router.url.includes('tables')}">
+                  <i class="fas fa-chair nav-icon"></i>
+                  <p>Tables</p>
+                </a>
+              </li>
             </ul>
           </li>
 

@@ -11,3 +11,6 @@ export * from './search-result-pagination.model';
 export * from './dish-updated-info.model';
 export * from './menu-item-update-info.model';
 export * from './menu-item.model';
+export * from './restaurant-table.model';
+export * from './restaurant-table-create-info.model';
+export * from './restaurant-table-updatable-info.model';

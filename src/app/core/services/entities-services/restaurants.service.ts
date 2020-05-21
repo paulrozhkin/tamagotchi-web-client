@@ -3,7 +3,7 @@ import {
   MenuItem,
   MenuItemUpdateInfo,
   Restaurant,
-  RestaurantCreateInfo,
+  RestaurantCreateInfo, RestaurantTableCreateInfo, RestaurantTableUpdatableInfo,
   RestaurantUpdateInfo,
   SearchResultPagination,
   StatePagination
@@ -54,5 +54,21 @@ export class RestaurantsService extends BaseEntityService<Restaurant> {
 
   addRestaurantMenu(restaurantId: number, menuItem: MenuItemUpdateInfo) {
     return this.apiService.post(`/restaurants/${restaurantId}/menu`, menuItem);
+  }
+
+  getRestaurantTables(restaurantId: number) {
+    return this.apiService.get(`/restaurants/${restaurantId}/tables`);
+  }
+
+  getRestaurantTableById(restaurantId: number, tableId: number) {
+    return this.apiService.get(`/restaurants/${restaurantId}/tables/${tableId}`);
+  }
+
+  updateRestaurantTable(restaurantId: number, tableId: number, table: RestaurantTableUpdatableInfo) {
+    return this.apiService.put(`/restaurants/${restaurantId}/tables/${tableId}`, table);
+  }
+
+  addRestaurantTable(restaurantId: number, table: RestaurantTableCreateInfo) {
+    return this.apiService.post(`/restaurants/${restaurantId}/tables`, table);
   }
 }

@@ -10,6 +10,7 @@ import {ManagementDishesComponent} from './admin-panel/management-dishes/managem
 import {ManagementMenuComponent} from './admin-panel/management-menu/management-menu.component';
 import {AuthGuard} from './core/services';
 import {LoginComponent} from './login/login.component';
+import {ManagementTablesComponent} from './admin-panel/management-tables/management-tables.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const routes: Routes = [
           {path: 'users', component: ManagementUsersComponent},
           {path: 'restaurants', component: ManagementRestaurantsComponent},
           {path: 'dishes', component: ManagementDishesComponent},
-          {path: 'menu', component: ManagementMenuComponent}
+          {path: 'menu', component: ManagementMenuComponent},
+          {path: 'tables', component: ManagementTablesComponent}
         ]
       }
     ]
