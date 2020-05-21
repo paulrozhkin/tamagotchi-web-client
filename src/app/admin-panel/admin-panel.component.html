@@ -116,10 +116,6 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-          class="fas fa-th-large"></i></a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -137,12 +133,15 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
         <div class="image">
-          <img src="assets/imags_admin_panel/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <i class="fas fa-user nav-icon text-white fa-lg"></i>
         </div>
         <div class="info">
-          <a class="d-block">Alexander Pierce</a>
+          <a class="d-block">{{currentUser?.login}}</a>
+        </div>
+        <div>
+          <i class="fas fa-window-close nav-icon text-white" (click)="logout()"></i>
         </div>
       </div>
 
@@ -215,12 +214,6 @@
     <router-outlet></router-outlet>
   </div>
   <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
   <footer class="main-footer">

@@ -1,5 +1,9 @@
 import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
+import {AccountService} from '../core/services';
+import {User} from '../core/models';
+import {Subject} from 'rxjs';
+
 declare function adminLteStart(): any;
 
 @Component({
@@ -13,7 +17,12 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
 
   public pageRoute = '/admin';
 
-  constructor(private renderer: Renderer2, public router: Router) {
+  public currentUser: User;
+
+  constructor(private renderer: Renderer2, public router: Router, private accountService: AccountService) {
+    accountService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    });
   }
 
   ngOnInit(): void {
@@ -26,4 +35,8 @@ export class AdminPanelComponent implements OnInit, OnDestroy {
     this.adminPanelClasses.forEach(adminBodyClass => this.renderer.removeClass(document.body, adminBodyClass));
   }
 
+  logout() {
+    this.accountService.logOut();
+    this.router.navigateByUrl('/');
+  }
 }

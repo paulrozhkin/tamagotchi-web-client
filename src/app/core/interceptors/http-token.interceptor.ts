@@ -1,17 +1,19 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {JwtService} from '../services';
+import {Observable} from 'rxjs';
+import {AccountService, JwtService} from '../services';
+import {tap} from 'rxjs/operators';
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
 
-  constructor(private jwtService: JwtService) {}
+  constructor(private jwtService: JwtService, private accountService: AccountService) {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const isFileKey = request.headers.get('IS-FILE');
@@ -35,10 +37,14 @@ export class HttpTokenInterceptor implements HttpInterceptor {
       const authData = {
         Authorization: `Bearer ${token}`
       };
-      headersConfig =  { ...headersConfig, ...authData };
+      headersConfig = {...headersConfig, ...authData};
     }
 
-    const requestWithToken = request.clone({ setHeaders: headersConfig });
-    return next.handle(requestWithToken);
+    const requestWithToken = request.clone({setHeaders: headersConfig});
+    return next.handle(requestWithToken).pipe(tap(() => {
+
+    }, error => {
+      this.accountService.logOut();
+    }));
   }
 }

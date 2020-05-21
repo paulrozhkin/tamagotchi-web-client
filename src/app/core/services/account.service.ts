@@ -42,11 +42,19 @@ export class AccountService {
     }
   }
 
-  private setAuth(user: { user: User, token: string }) {
+  private setAuth(userWithToken) {
     // Save JWT sent from server in localstorage
-    this.jwtService.saveToken(user.token);
+    this.jwtService.saveToken(userWithToken.token);
     // Set current user data into observable
-    this.currentUserSubject.next(user.user);
+    const user: User = {
+      avatar: userWithToken.avatar,
+      fullName: userWithToken.fullName,
+      id: userWithToken.id,
+      isBlocked: userWithToken.isBlocked,
+      login: userWithToken.login,
+      role: userWithToken.role
+    };
+    this.currentUserSubject.next(user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
   }
