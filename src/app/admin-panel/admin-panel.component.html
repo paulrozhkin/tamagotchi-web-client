@@ -208,6 +208,16 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a routerLink="{{pageRoute}}/releases" class="nav-link" [ngClass]="{'active': router.url.includes('releases')}">
+              <i class="nav-icon fab fa-android"></i>
+              <p>
+                Release
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-management-menu -->

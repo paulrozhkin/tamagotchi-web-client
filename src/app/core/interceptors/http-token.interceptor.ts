@@ -8,11 +8,12 @@ import {
 import {Observable} from 'rxjs';
 import {AccountService, JwtService} from '../services';
 import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
 
-  constructor(private jwtService: JwtService, private accountService: AccountService) {
+  constructor(private jwtService: JwtService, private accountService: AccountService, private router: Router) {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -44,7 +45,10 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     return next.handle(requestWithToken).pipe(tap(() => {
 
     }, error => {
-      this.accountService.logOut();
+      if (error.status === 401) {
+        this.accountService.logOut();
+        this.router.navigateByUrl('/');
+      }
     }));
   }
 }

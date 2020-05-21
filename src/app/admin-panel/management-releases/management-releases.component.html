@@ -1,0 +1,31 @@
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="pt-1">
+      <div class="mt-3">
+        <h4>Client APK</h4>
+        <input
+          type="file" id="clientFile" (change)="onFileChangedClientRelease(fileClientInput.files)"
+          #fileClientInput>
+        <button type="button" class="btn btn-primary"
+                [ngClass]="{'btn-danger': isClientUploadError, 'btn-success': isClientUploadSuccess}"
+                [disabled]="isUploading || !selectedClientAPKFile"
+                (click)="submitClientApkUpload()">Upload
+        </button>
+      </div>
+
+      <div class="mt-4">
+        <h4>Staff APK</h4>
+        <input
+          type="file" id="staffFile" (change)="onFileChangedStaffRelease(fileStaffInput.files)"
+          #fileStaffInput>
+        <button type="button" class="btn btn-primary"
+                [ngClass]="{'btn-danger': isStaffUploadError, 'btn-success': isStaffUploadSuccess}"
+                [disabled]="isUploading || !selectedStaffAPKFile"
+                (click)="submitStaffApkUpload()">Upload
+        </button>
+      </div>
+    </div>
+  </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->

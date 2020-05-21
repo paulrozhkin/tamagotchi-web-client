@@ -11,6 +11,7 @@ import {ManagementMenuComponent} from './admin-panel/management-menu/management-
 import {AuthGuard} from './core/services';
 import {LoginComponent} from './login/login.component';
 import {ManagementTablesComponent} from './admin-panel/management-tables/management-tables.component';
+import {ManagementReleasesComponent} from './admin-panel/management-releases/management-releases.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
           {path: 'menu', component: ManagementMenuComponent},
           {path: 'tables', component: ManagementTablesComponent}
         ]
-      }
+      },
+      {path: 'releases', component: ManagementReleasesComponent}
     ]
   },
   // {path: '**', redirectTo: '/welcome'},

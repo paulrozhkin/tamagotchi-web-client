@@ -29,6 +29,7 @@ import {MenuItemUpdateComponent} from './admin-panel/management-menu/menu-item-u
 import {TablesCreateComponent} from './admin-panel/management-tables/tables-create/tables-create.component';
 import {TablesUpdateComponent} from './admin-panel/management-tables/tables-update/tables-update.component';
 import {ManagementTablesComponent} from './admin-panel/management-tables/management-tables.component';
+import { ManagementReleasesComponent } from './admin-panel/management-releases/management-releases.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {ManagementTablesComponent} from './admin-panel/management-tables/managem
     MenuItemUpdateComponent,
     TablesCreateComponent,
     TablesUpdateComponent,
-    ManagementTablesComponent
+    ManagementTablesComponent,
+    ManagementReleasesComponent
   ],
   imports: [
     BrowserModule,
